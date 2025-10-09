@@ -4,12 +4,10 @@ import "./globals.css";
 import Navbar from "@/components/Navbar";
 import {
   ClerkProvider,
-  SignInButton,
-  SignUpButton,
-  SignedIn,
-  SignedOut,
-  UserButton,
 } from "@clerk/nextjs";
+
+// Opt the root layout out of static rendering since Clerk relies on request headers.
+export const dynamic = 'force-dynamic';
 
 const bricolage = Bricolage_Grotesque({
   variable: "--font-bricolage",

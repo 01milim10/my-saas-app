@@ -1,9 +1,11 @@
 import CompanionCard from "@/components/CompanionCard";
 import CompanionsList from "@/components/CompanionsList";
 import CTA from "@/components/Cta";
-import {recentSessions} from "@/constants";
 import {getAllCompanions, getRecentSessions} from "@/lib/actions/companion.actions";
 import {getSubjectColor} from "@/lib/utils";
+
+// This page uses auth/headers through downstream components/actions. Mark as dynamic to avoid prerender errors.
+export const dynamic = 'force-dynamic';
 
 const Page = async () => {
     const companions = await getAllCompanions({ limit: 3 });
